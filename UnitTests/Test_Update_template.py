@@ -4,6 +4,7 @@ import numpy as np
 from Functions.Update_template import clean_tmp_file,loadTemplatesFromS3,gettemplateArraysClassUUIDs, add_new_template_to_zip_file,get_template_rawdata_from_athena, delete_new_template_to_zip_file, get_template_rawdata_from_athena, upload_new_templates_file_to_S3,delete_new_templates_file_to_S3
 
 class Test_loadTemplatesFromS3(unittest.TestCase):
+
     def setUp(self):
         self.variable = {
             'ZipFile': "templates_wen_v12.zip",
@@ -12,6 +13,7 @@ class Test_loadTemplatesFromS3(unittest.TestCase):
             'DataBase': 'dailyimureportdb',
             'S3BucketNameSaveQuery': 'aws-athena-query-results-us-east-1-444235434904'
         }
+
     #test the number of templates while getting template file from s3
     def test_the_number_of_templates_in_zip(self):
         Variables = self.variable
@@ -35,6 +37,7 @@ class Test_loadTemplatesFromS3(unittest.TestCase):
 
 
 class Test_gettemplateArraysClassUUIDs(unittest.TestCase):
+
     def setUp(self):
         self.variable = {
             'ZipFile': "templates_wen_v12.zip",
@@ -43,6 +46,7 @@ class Test_gettemplateArraysClassUUIDs(unittest.TestCase):
             'DataBase': 'dailyimureportdb',
             'S3BucketNameSaveQuery': 'aws-athena-query-results-us-east-1-444235434904'
         }
+
     # test the number of templatearray while getting template file from s3
     def test_the_number_of_templatearray(self):
         Variables = self.variable
@@ -52,6 +56,7 @@ class Test_gettemplateArraysClassUUIDs(unittest.TestCase):
         print(gettemplateArraysClassUUIDs(AllTemplatesArrays)[2])
         expected= 240
         self.assertEqual(result, expected)
+
     # test if the classification of first templatearray is harshbraking
     def test_single_category_of_first_template(self):
         Variables = self.variable

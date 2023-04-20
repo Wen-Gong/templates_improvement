@@ -1,12 +1,9 @@
 import unittest
-
 import numpy as np
 import pandas as pd
-
 import json
 
 from Functions.validation import execute_query,extract_accelemeter_data_from_str_to_array,extract_accelemeter_data_from_list_to_array, match_score_with_one_template, mean_list_of_single_category, template_performance, get_template_array_from_athena, top_three_rate, final_result_of_conditional_judgement, Decide_good_template, divide_dataset_by_classification
-
 
 class Test_extract_accelemeter_data_from_str_to_array(unittest.TestCase):
 
@@ -412,7 +409,7 @@ class Test_Decide_good_template(unittest.TestCase):
 
 class Test_divide_dataset_by_classification(unittest.TestCase):
     def test_result(self):
-        validation_data=pd.read_csv('C:/Users/WenGong/Downloads/templates_improvement_staging/validation_data.csv')
+        validation_data=pd.read_csv('/temporary file/validation_data.csv')
         result_1 = type(divide_dataset_by_classification(validation_data,'harshBraking')[0])
         expected_1 = pd.DataFrame
         self.assertEqual(result_1, expected_1)
@@ -422,7 +419,7 @@ class Test_divide_dataset_by_classification(unittest.TestCase):
         self.assertEqual(result_2, expected_2)
 
     def test_result_2(self):
-        validation_data=pd.read_csv('C:/Users/WenGong/Downloads/templates_improvement_staging/validation_data.csv')
+        validation_data=pd.read_csv('/temporary file/validation_data.csv')
         result_1 = type(divide_dataset_by_classification(validation_data,'harshLeftTurn')[0])
         expected_1 = pd.DataFrame
         self.assertEqual(result_1, expected_1)
